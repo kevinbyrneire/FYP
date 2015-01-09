@@ -1,15 +1,21 @@
 import string
-import gzip
 import random as r
+from lzwReWrite import compress
+import matplotlib.pyplot as plt
+
+stringlength = 100000
 l=string.printable
+res=[]
 for i in range(1,21):
   f=''
-  for j in range(2**11*1000):
-    x=i*(len(l)//20)
-    
+  x=i*(len(l)//20)
+  for j in range(stringlength):    
     f+=l[r.randrange(x)]
-  print(i,x)
-  s = open('textFile'+str(x)+'.txt','w')
-  s.write(f)
-  s.close()
+	
+  res+=[stringlength/float(compress(f))]
+plt.plot(range(len(res)),res)
+plt.show()
+  #s = open('textFile'+str(x)+'.txt','w')
+  #s.write(f)
+  #s.close()
 
