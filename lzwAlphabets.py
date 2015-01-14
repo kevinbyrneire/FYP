@@ -13,9 +13,7 @@ for i in range(1,21):
     f+=l[r.randrange(x)]
 	
   res+=[stringlength/float(compress(f))]
-plt.plot(range(len(res)),res)
+plt.plot(res)
 plt.show()
-  #s = open('textFile'+str(x)+'.txt','w')
-  #s.write(f)
-  #s.close()
+
 

@@ -1,9 +1,10 @@
-import time
-import zlib
-import string
-import random as r
+import time,string, random as r
+from lzwReWrite import compress
+import matplotlib.pyplot as plt
+
 l=string.printable
 f=''
+res=[]
 for i in range(1000):  # initialize f to a 1000 letter string
   f+=l[r.randrange(len(l))]
 
@@ -12,6 +13,9 @@ for i in range(12):
     f+=l[r.randrange(0,len(l))]
 
   t = time.time()
-  zlib.compress(f)
+  compress(f)
   t=time.time()-t
-  print(len(f),t)
+  res+=[t]
+
+plt.plot(range(len(res)),res)
+plt.show()  

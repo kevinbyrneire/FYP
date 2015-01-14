@@ -9,11 +9,11 @@ def getCompSizes(inFile,stringSize):
   l = []
 
   while i<10000 and eof-i>=stringSize:
-
+    f.seek(i)
     l+=[compress(f.read(stringSize))]
 
     i+=1
-    f.seek(i)
+    
   f.close()
   return l
 
@@ -27,6 +27,3 @@ def main(filename, stringsize):
   f.write(s)
   f.close()
 
-#for i in range(8,15):
- # main(sys.argv[1],2**i)
-#main(sys.argv[1], int(sys.argv[2]))
