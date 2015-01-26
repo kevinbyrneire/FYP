@@ -4,3 +4,6 @@
 *.csv
 *.xlsx
 *.xls
+*.gz
+*.txt
+*.log
