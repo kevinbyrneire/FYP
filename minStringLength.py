@@ -1,24 +1,24 @@
 from lzwReWrite import compress
 import string, sys,random as rand
 import matplotlib.pyplot as plt
-from math import log
+from math import log,sqrt
 
-r,s='&d','aa'
-compRand, compUni, x = [],[],[]
-l=string.printable
+f=open(sys.argv[1])
+s=f.read(1000)
+res,x = [],[]
 
-for i in range(1,12):
-  s+=2**i*'a'
-  for j in range(2**i):
-    r+=l[rand.randrange(len(l))]
-    
-
-  compUni+=[compress(s)]
-  compRand+=[compress(r)]
-  x+=[len(s)]
+for i in range(1,256):
+  res+=[compress(s[:i])]
+  x+=[i]
   
-plt.plot(x,compUni,label='uniform')
-plt.plot(x,compRand,label='random')
-plt.plot(x,x,label='linear')
-#plt.plot(x,map(lambda z: log(z,2),x))
+f.close()
+
+plt.plot(x,x,'red',label='linear')
+plt.plot(x,res)
+
+plt.xlabel('Uncompressed String Length')
+plt.ylabel('Compressed Length')
+
+plt.legend(bbox_to_anchor=(0.3,0.9))
+
 plt.show()
