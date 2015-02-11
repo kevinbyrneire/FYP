@@ -16,6 +16,7 @@ x=[]
 for i in range(12):
   for j in range(2**i*1000):
     f+=l[r.randrange(0,len(l))]
+
   x+=[2**i*1000]
   t = time.time()
   compress(f)
@@ -23,5 +24,7 @@ for i in range(12):
   res+=[t]
 
 plt.plot(x,res)
+plt.ylabel('Time')
+plt.xlabel('String Length')
 #plt.plot(range(len(res)),map(lambda z: log(z,2),res))
 plt.show()  

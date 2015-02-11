@@ -16,4 +16,8 @@ def deviation(l):
   t = sum(map(lambda x: (x-m)**2,l))
   return math.sqrt(t/float(len(l)))
 
+def normalize(l):
+  mu = mean(l)
+  sigma = deviation(l)
+  return map(lambda x: (x-mu)/sigma, l)
 

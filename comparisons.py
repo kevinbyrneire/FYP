@@ -21,10 +21,10 @@ for i in range(1,int(log(maxString,2))):
   
 f.close()
 
-plt.plot(x,compUni,label='average')
-plt.plot(x,compRand,label='random')
-plt.plot(x,x,label='linear')
-plt.plot(x,map(lambda z: sqrt(2*z),x), label='uniform')
+plt.plot(x,compUni,label='average',color='green')
+plt.plot(x,compRand,label='random',color='blue')
+plt.plot(x,x,label='linear',color='red')
+plt.plot(x,map(lambda z: sqrt(2*z),x), label='optimal', color='cyan')
 
 plt.xlabel('Uncompressed String Length')
 plt.ylabel('Compressed Length')

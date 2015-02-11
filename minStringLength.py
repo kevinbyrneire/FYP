@@ -3,15 +3,24 @@ import string, sys,random as rand
 import matplotlib.pyplot as plt
 from math import log,sqrt
 
+
+def randomString(n):
+  s=''
+  l=string.printable
+  for i in range(n):
+    s+=l[rand.randrange(len(l))]
+	
+  return s
+  
 #f=open(sys.argv[1])
 #s=f.read(1000)
 l=string.printable
 s=''
-for j in range(1000):
+for j in range(10000):
   s+=l[rand.randrange(len(l))]
 res,x = [],[]
 
-for i in range(1,256):
+for i in range(1,10000):
   res+=[compress(s[:i])]
   x+=[i]
   
