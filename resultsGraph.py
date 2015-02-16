@@ -9,8 +9,8 @@ def main():
   t=time.time()-t
   
   plt.plot(np.arange(len(l)),l,'green')#,marker=u'.')
-  plt.plot(len(l)*[mean(l)],'r--',label='mean')
-  plt.plot(len(l)*[median(l)], label='median')
+  plt.plot(len(l)*[mean(l)],label='mean')
+  plt.plot(len(l)*[median(l)], 'r--',label='median')
   plt.legend()
   plt.ylabel('Compressed Size')
   plt.xlabel('Position')

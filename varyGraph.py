@@ -1,24 +1,21 @@
-import sys, gzip, os, time as t, zlib, numpy
-
+import sys, gzip, os, time as t
+from lzwReWrite import compress
 
 def getCompSizes(inFile,stringSize):
   f = open(inFile)
-  #text = f.read()
-  #f.close()
+
   eof = os.path.getsize(inFile)
   i=0
-  #l = numpy.empty(10000)
-  l=[]
-
-  while i<100000 and eof-i>=stringSize:
-
-    x = zlib.compress(f.read(stringSize))
-
-    l+=[len(x)]
-    i+=1
+  l = []
+  while i<1000000 and eof-i>=stringSize:
     f.seek(i)
+    l+=[compress(f.read(stringSize))]
+
+    i+=1
+    
   f.close()
   return l
+  
 
 def main(filename, stringsize):
   sizeList = getCompSizes(filename, stringsize)
@@ -30,6 +27,3 @@ def main(filename, stringsize):
   f.write(s)
   f.close()
 
-#for i in range(8,15):
- # main(sys.argv[1],2**i)
-#main(sys.argv[1], int(sys.argv[2]))

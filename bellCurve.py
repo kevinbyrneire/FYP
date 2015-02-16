@@ -1,4 +1,4 @@
-from varyGraphCopy import getCompSizes
+from varyGraph import getCompSizes
 import matplotlib.pyplot as plt
 import sys
 

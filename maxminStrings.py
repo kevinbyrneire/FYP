@@ -1,4 +1,4 @@
-from varyGraphCopy import getCompSizes
+from varyGraph import getCompSizes
 import sys
 
 def getMinString(inFile, stringSize):
@@ -28,6 +28,13 @@ def getMaxString(inFile, stringSize):
   return s
 
 filename, stringSize = sys.argv[1],int(sys.argv[2])
-print getMinString(filename,stringSize)
-print
-print getMaxString(filename, stringSize)
+
+f=open('maxMinStrings.txt','w')
+f.write('MinString: '+getMinString(filename,stringSize)+'\n')
+#print getMinString(filename,stringSize)
+#print
+#print getMaxString(filename, stringSize)
+
+f.write('MaxString: ' + getMaxString(filename, stringSize))
+
+f.close()

@@ -1,6 +1,6 @@
 import sys
 from getStats import *
-from varyGraphCopy import getCompSizes
+from varyGraph import getCompSizes
 import matplotlib.pyplot as plt
 from bellCurve import freqDist
 
