@@ -1,4 +1,4 @@
-from lzwReWrite import compress
+from lz78 import compress
 import string
 import matplotlib.pyplot as plt
 from math import sqrt

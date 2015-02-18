@@ -2,14 +2,21 @@ import sys
 from getStats import *
 from varyGraph import getCompSizes
 import matplotlib.pyplot as plt
-from bellCurve import freqDist
+import matplotlib.mlab as mlab
 
-l = getCompSizes(sys.argv[1], int(sys.argv[2]))
+stringSize=int(sys.argv[1])
+l = getCompSizes('englishText.txt', stringSize)
+n = getCompSizes('spanishText.txt', stringSize)
 
-left = l[:len(l)/2]
-right = l[len(l)/2:]
+m, bins, p = plt.hist(l,50,normed=True,visible=False)
+m1, bins1, p1 = plt.hist(n,50,normed=True,visible=False)
 
-plt.plot([i[0] for i in freqDist(left)], [i[1] for i in freqDist(left)])
-plt.plot([i[0] for i in freqDist(right)], [i[1] for i in freqDist(right)])
+y = mlab.normpdf(bins, mean(l),deviation(l))
+y1 = mlab.normpdf(bins1, mean(n),deviation(n))
 
+plt.plot(bins,y,label='English')
+plt.plot(bins1,y1,'b--',label='Spanish')
+
+plt.xlabel('Compressed Size')
+plt.legend()
 plt.show()

@@ -1,5 +1,5 @@
 import sys, gzip, os, time as t
-from lzwReWrite import compress
+from lz78 import compress
 
 def getCompSizes(inFile,stringSize):
   f = open(inFile)

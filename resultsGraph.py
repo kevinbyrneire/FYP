@@ -1,4 +1,4 @@
-from varyGraphCopy import getCompSizes
+from varyGraph import getCompSizes
 import numpy as np
 import matplotlib.pyplot as plt
 import sys, time
@@ -8,7 +8,7 @@ def main():
   l = getCompSizes(sys.argv[1],int(sys.argv[2]))
   t=time.time()-t
   
-  plt.plot(np.arange(len(l)),l,'green')#,marker=u'.')
+  plt.plot(l,'green')#,marker=u'.')
   plt.plot(len(l)*[mean(l)],label='mean')
   plt.plot(len(l)*[median(l)], 'r--',label='median')
   plt.legend()

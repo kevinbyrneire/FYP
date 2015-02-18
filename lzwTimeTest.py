@@ -1,5 +1,5 @@
 import time,string, random as r
-from lzwReWrite import compress
+from lz78 import compress
 import matplotlib.pyplot as plt
 from math import log
 

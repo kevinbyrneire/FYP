@@ -1,4 +1,4 @@
-from lzwReWrite import compress
+from lz78 import compress
 import string, sys,random as rand
 import matplotlib.pyplot as plt
 from math import log,sqrt
@@ -21,10 +21,10 @@ for i in range(1,int(log(maxString,2))):
   
 f.close()
 
-plt.plot(x,compUni,label='average',color='green')
-plt.plot(x,compRand,label='random',color='blue')
+plt.plot(x,compUni,'g--',	label='average')
+plt.plot(x,compRand,'b-.',label='random')
 plt.plot(x,x,label='linear',color='red')
-plt.plot(x,map(lambda z: sqrt(2*z),x), label='optimal', color='cyan')
+plt.plot(x,map(lambda z: sqrt(2*z),x), 'k:',label='optimal',markersize=20)
 
 plt.xlabel('Uncompressed String Length')
 plt.ylabel('Compressed Length')
