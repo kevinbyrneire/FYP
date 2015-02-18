@@ -1,4 +1,4 @@
-from lzwReWrite import compress
+from lz78 import compress
 import sys
 import matplotlib.pyplot as plt
 
